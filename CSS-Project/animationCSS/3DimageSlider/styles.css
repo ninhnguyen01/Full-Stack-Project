@@ -1,0 +1,75 @@
+body {
+    background-color: hsl(193, 67%, 41%);
+    background-image: url(image/tower4.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .slider {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: Autorun 20s linear infinite;
+}
+
+@keyframes Autorun {
+    from {
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }
+
+    to {
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
+}
+
+.banner .slider .item img {
+    width: 80%;
+    height: 80%;
+    object-fit: scale-down;
+}
+
+.banner .content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-family: cursive, Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    font-weight: 700px;
+    color: hsl(0, 0%, 100%);
+    max-width: 100%;
+    z-index: -1;
+}
+
+img:hover {
+    border: 2px solid hsl(0, 0%, 100%);
+    border-radius: 2em;
+    background-color: hsl(193, 41%, 49%);
+    opacity: 0.8;
+}
